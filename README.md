@@ -26,7 +26,7 @@ This project demonstrates building a **Security Operations Center (SOC)** using 
 Run the all-in-one installer:
 ```bash
 curl -sO https://packages.wazuh.com/4.9/wazuh-install.sh
-sudo bash wazuh-install.sh -a
+sudo bash wazuh-install.sh -a -i 
 ```
 
 Login dashboard:  
@@ -56,6 +56,7 @@ Login dashboard:
    ```powershell
    net start WazuhSvc
    ```
+Important:- ##...Also you can use gui interface for Configure Agent in windows platformes..##
 
 ### 2. Windows 10 PC
 (Same as Windows Server steps, just change Agent Name → `Win10PC`)
@@ -69,14 +70,21 @@ sudo systemctl start wazuh-agent
 ```
 
 ---
+Imporatant: ## Sometimes agent should be manually register in wazuh manager using this command ##
+sudo /var/ossec/bin/manage_agents 
 
 ## 🔍 Monitoring Rules
 
 ### File Integrity Monitoring (FIM)
 Enabled by default in Wazuh:
 - Watches Windows Registry
+- Windows File changes in free defined locations
+  (Open the following configuration file: C:\Program Files (x86)\ossec-agent\ossec.conf
+  and Add the following entry inside the Directory block: <directories realtime="yes">C:\Users\abc\Test</directories> )
 - Tracks changes in `/etc/` (Linux)
 - Logs visible in **Security Events → FIM**
+
+Imporatant: After any of chanage should restart the Agent
 
 ### Login Event Monitoring
 - Windows → Security Logs via Agent
@@ -93,7 +101,8 @@ Enabled by default in Wazuh:
 ## 📂 Project Files
 - `AWS-SOC-Wazuh-README.md` (this file)
 - `AWS-SOC-Wazuh-Project.pdf` (detailed PDF guide)
-- `/docs/architecture.png` (diagram — to be added)
+- `/docs/architecture.png` (diagram — PNG File)
+- `/Screenshots of Project` (PNG Files)
 
 ---
 
@@ -108,3 +117,7 @@ Enabled by default in Wazuh:
 
 ## 📊 Architecture Diagram
 (Will be placed in `/docs/architecture.png`)
+
+##**Swadesh Rawana**  
+📍 Cybersecurity & Network Systems Student  
+🔗 [LinkedIn Profile](http://linkedin.com/in/swadesh-rawana-297858352)

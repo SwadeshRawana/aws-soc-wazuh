@@ -78,9 +78,9 @@ sudo /var/ossec/bin/manage_agents
 ### File Integrity Monitoring (FIM)
 Enabled by default in Wazuh:
 - Watches Windows Registry
-- Windows File changes in free defined locations
+- Windows File changes in pre defined locations
   (Open the following configuration file: C:\Program Files (x86)\ossec-agent\ossec.conf
-  and Add the following entry inside the Directory block: <directories realtime="yes">C:\Users\abc\Test</directories> )
+  and Add the following entry inside the Directory block: <directories realtime="yes"> Location you want to monitor(Path) </directories> )
 - Tracks changes in `/etc/` (Linux)
 - Logs visible in **Security Events → FIM**
 
